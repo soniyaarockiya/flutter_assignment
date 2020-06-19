@@ -29,7 +29,7 @@ class _RootScreenState extends State<RootScreen> {
         elevation: 0.0,
         centerTitle: true,
         leading: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(8.0),
           child: Container(
             child: CircleAvatar(
               backgroundColor: Colors.amber,
@@ -42,11 +42,17 @@ class _RootScreenState extends State<RootScreen> {
         ),
         actions: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: IconButton(
-              icon: Icon(Icons.card_giftcard),
-              onPressed: null,
-              alignment: Alignment.center,
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.grey[200],
+              child: IconButton(
+                icon: Icon(
+                  Icons.card_giftcard,
+                  color: kIconColor,
+                ),
+                onPressed: null,
+                alignment: Alignment.center,
+              ),
             ),
           )
         ],
@@ -56,7 +62,6 @@ class _RootScreenState extends State<RootScreen> {
         index: _selectedIndex,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(

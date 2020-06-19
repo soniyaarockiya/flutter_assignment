@@ -9,22 +9,29 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(18.0),
+      padding: const EdgeInsets.all(35.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 60.0),
-            child: Text(
-              'Hey $userName, your total balance is ',
-              style: kTextStyle,
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 60.0),
+              child: Expanded(
+                child: Text(
+                  'Hey $userName, your total balance is ',
+                  style: kTextStyle,
+                ),
+              ),
             ),
           ),
-          Text(
-            '\$$totalBalance',
-            style: kMoneyStyle,
+          Expanded(
+            child: Text(
+              '\$$totalBalance',
+              style: kMoneyStyle,
+            ),
           ),
           Expanded(
+            flex: 7,
             child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
@@ -33,34 +40,37 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.black,
                 ),
                 InfoCards(
-                  position: 80.0,
+                  position: 70.0,
                   color: Colors.blueAccent,
                 )
               ],
             ),
           ),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: RoundedButton(
-                  title: 'Request',
-                  color: Colors.blueAccent,
-                  onPressed: () {
-                    // Navigator.pushNamed(context, LoginScreen.id);
-                  },
+          Expanded(
+            flex: 2,
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: RoundedButton(
+                    title: 'Request',
+                    color: Colors.blueAccent,
+                    onPressed: () {
+                      // Navigator.pushNamed(context, LoginScreen.id);
+                    },
+                  ),
                 ),
-              ),
-              SizedBox(width: 20.0),
-              Expanded(
-                child: RoundedButton(
-                  title: 'Send',
-                  color: Colors.black,
-                  onPressed: () {
-                    // Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
+                SizedBox(width: 20.0),
+                Expanded(
+                  child: RoundedButton(
+                    title: 'Send',
+                    color: Colors.black,
+                    onPressed: () {
+                      // Navigator.pushNamed(context, RegistrationScreen.id);
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

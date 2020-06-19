@@ -8,7 +8,7 @@ class InfoCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: position,
-      bottom: 100.0,
+      bottom: 20.0,
       left: 0.0,
       right: 0.0,
       child: Card(
@@ -22,10 +22,11 @@ class InfoCards extends StatelessWidget {
             child: Text(
               "Some text",
               style: TextStyle(
-                fontSize: 20.0,
+                fontSize: 30.0,
                 color: Colors.amber,
               ),
             ),
+          
           ),
         ),
       ),

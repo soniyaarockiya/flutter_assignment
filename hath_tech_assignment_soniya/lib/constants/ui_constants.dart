@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kIconColor = Colors.grey;
+const kIconColor = Colors.purple;
 
 const kTextStyle = TextStyle(fontSize: 25.0, fontWeight: FontWeight.w600);
 
