@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:heth_tech_assignment_soniya/constants/ui_constants.dart';
 import 'package:heth_tech_assignment_soniya/sub_widgets/rounded_button.dart';
 import 'package:heth_tech_assignment_soniya/sub_widgets/info_cards.dart';
+import 'package:heth_tech_assignment_soniya/screens/available_crypto.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const id = 'home_screen';
+
   final String userName = 'Soniya';
   final String totalBalance = '100';
   @override
@@ -35,13 +38,29 @@ class HomeScreen extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
-                InfoCards(
-                  position: 10.0,
-                  color: Colors.black,
+                Positioned(
+                  top: 10.0,
+                  bottom: 20.0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: InfoCards(
+                    color: Colors.black,
+                    imageUrl: 'https://wallpapercave.com/wp/wp2337006.jpg',
+                    onTap: () {
+                      Navigator.pushNamed(context, AvailableCryptoScreen.id);
+                    },
+                  ),
                 ),
-                InfoCards(
-                  position: 70.0,
-                  color: Colors.blueAccent,
+                Positioned(
+                  top: 75.0,
+                  bottom: 20.0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: InfoCards(
+                    color: Colors.blueAccent,
+                    imageUrl:
+                        'https://i.pinimg.com/564x/85/c0/34/85c0345fb0d7bb63ab78127badb31f44.jpg',
+                  ),
                 )
               ],
             ),

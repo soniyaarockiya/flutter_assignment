@@ -6,6 +6,8 @@ import 'package:heth_tech_assignment_soniya/screens/payments_screen.dart';
 import 'package:heth_tech_assignment_soniya/screens/scan_screen.dart';
 
 class RootScreen extends StatefulWidget {
+  static const id = 'root_screen';
+
   @override
   _RootScreenState createState() => _RootScreenState();
 }
