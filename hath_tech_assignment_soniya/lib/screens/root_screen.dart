@@ -4,8 +4,12 @@ import 'package:heth_tech_assignment_soniya/screens/discover_screen.dart';
 import 'package:heth_tech_assignment_soniya/screens/home_screen.dart';
 import 'package:heth_tech_assignment_soniya/screens/payments_screen.dart';
 import 'package:heth_tech_assignment_soniya/screens/scan_screen.dart';
+import 'package:heth_tech_assignment_soniya/services/provider_service.dart';
+import 'package:heth_tech_assignment_soniya/services/firebase_service.dart';
+import 'package:provider/provider.dart';
 
 class RootScreen extends StatefulWidget {
+  //screen id for named routes
   static const id = 'root_screen';
 
   @override
@@ -13,16 +17,34 @@ class RootScreen extends StatefulWidget {
 }
 
 class _RootScreenState extends State<RootScreen> {
-  GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
-
+  //bottom nav icon index
   int _selectedIndex = 0;
 
+  //different bottom nav screens
   final List<Widget> _children = [
     HomeScreen(),
     PaymentsScreen(),
     ScanScreen(),
     DiscoverScreen()
   ];
+
+  final FireBaseService _fireBaseService = new BaseClass();
+
+  @override
+  void initState() {
+    super.initState();
+    getBalDetails();
+  }
+
+  void getBalDetails() async {
+    String result = await _fireBaseService.getCashBalance();
+    Provider.of<ProviderData>(context, listen: false).changeBalance(result);
+
+    String result2 = await _fireBaseService.getCryptoBalance();
+    Provider.of<ProviderData>(context, listen: false).changeCrypto(result2);
+
+    Provider.of<ProviderData>(context, listen: false).totalBal(result, result2);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +54,10 @@ class _RootScreenState extends State<RootScreen> {
         centerTitle: true,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            child: CircleAvatar(
-              backgroundColor: Colors.amber,
-            ),
+          child: CircleAvatar(
+            backgroundImage:
+                NetworkImage(Provider.of<ProviderData>(context).imageUrl),
+            backgroundColor: Colors.amber,
           ),
         ),
         title: Text(
@@ -101,6 +123,7 @@ class _RootScreenState extends State<RootScreen> {
     );
   }
 
+  //change root screen body based on icon clicked in bottom nav
   void _onItemTapped(int index) {
     print("Selected index --------$index");
     setState(() {

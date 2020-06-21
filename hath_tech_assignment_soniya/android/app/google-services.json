@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "758927141692",
+    "firebase_url": "https://metal-pay-hath-tech.firebaseio.com",
+    "project_id": "metal-pay-hath-tech",
+    "storage_bucket": "metal-pay-hath-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758927141692:android:091dfac7bef11590a30c39",
+        "android_client_info": {
+          "package_name": "com.soniyaarockiya.heth_tech_assignment_soniya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758927141692-4thfl6gbbv690a1rmjd962n81ofkiu55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkb0M9xPT8sgSGglqRriBSBzRZezvmBxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758927141692-4thfl6gbbv690a1rmjd962n81ofkiu55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

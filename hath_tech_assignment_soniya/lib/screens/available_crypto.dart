@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:heth_tech_assignment_soniya/sub_widgets/info_cards.dart';
 import 'package:heth_tech_assignment_soniya/sub_widgets/repeated_row.dart';
+import 'package:provider/provider.dart';
+import 'package:heth_tech_assignment_soniya/services/provider_service.dart';
 
 class AvailableCryptoScreen extends StatefulWidget {
   static const id = 'available_crypto_screen';
@@ -16,7 +18,6 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
       appBar: AppBar(
         title: Text(
           'MarketPlace',
-          style: TextStyle(color: Colors.black),
         ),
       ),
       body: Container(
@@ -46,6 +47,9 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: InfoCards(
+                  balance:
+                      '${Provider.of<ProviderData>(context).cryptoBalance}',
+                  text: 'Crypto',
                   color: Colors.black,
                   imageUrl: 'https://wallpapercave.com/wp/wp2337006.jpg',
                 ),
