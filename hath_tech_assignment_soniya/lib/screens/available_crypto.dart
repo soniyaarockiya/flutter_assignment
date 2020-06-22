@@ -4,8 +4,10 @@ import 'package:heth_tech_assignment_soniya/sub_widgets/info_cards.dart';
 import 'package:heth_tech_assignment_soniya/sub_widgets/repeated_row.dart';
 import 'package:provider/provider.dart';
 import 'package:heth_tech_assignment_soniya/services/provider_service.dart';
+import 'package:heth_tech_assignment_soniya/services/get_featured.dart';
 
 class AvailableCryptoScreen extends StatefulWidget {
+  //Screen id
   static const id = 'available_crypto_screen';
 
   @override
@@ -13,6 +15,19 @@ class AvailableCryptoScreen extends StatefulWidget {
 }
 
 class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
+  // Get Featured data --- api mock call for json response
+  FeaturedData _featuredData = new FeaturedData();
+
+  @override
+  void initState() {
+    super.initState();
+    getFeatured(context);
+  }
+
+  void getFeatured(BuildContext context) async {
+    await _featuredData.getFeaturedData(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +60,8 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
                       onPressed: null),
                 ],
               ),
+              // -------------------------------------------------------------------------------------------------
+
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: InfoCards(
@@ -55,6 +72,9 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
                   imageUrl: Provider.of<ProviderData>(context).infoCardImageUrl,
                 ),
               ),
+
+              // -------------------------------------------------------------------------------------------------
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: kSizedBox,
@@ -67,7 +87,11 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
                   style: kDividerTextStyle,
                 ),
               ),
+              // see sub_widgets folder for this widget
               RepeatedRow(),
+
+              // -------------------------------------------------------------------------------------------------
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: kSizedBox,
@@ -80,6 +104,7 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
                   style: kDividerTextStyle,
                 ),
               ),
+              // see sub_widgets folder for this widget
               RepeatedRow(),
             ],
           ),

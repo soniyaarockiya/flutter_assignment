@@ -25,6 +25,8 @@ class ListComponent extends StatelessWidget {
               ),
             ),
           ),
+          // -------------------------------------------------------------------------------------------------
+
           Expanded(
             flex: 7,
             child: Column(
@@ -34,6 +36,8 @@ class ListComponent extends StatelessWidget {
               ],
             ),
           ),
+          // -------------------------------------------------------------------------------------------------
+
           Expanded(
             flex: 2,
             child: Padding(

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:heth_tech_assignment_soniya/constants/ui_constants.dart';
-// import 'package:heth_tech_assignment_soniya/constants/ui_constants.dart';
 
 class InfoCards extends StatelessWidget {
   InfoCards({this.color, this.imageUrl, this.onTap, this.text, this.balance});
-  // final double position;
   final Color color;
   final String imageUrl;
   final Function onTap;
@@ -24,6 +22,8 @@ class InfoCards extends StatelessWidget {
           side: BorderSide(width: 3.5, color: Colors.blueGrey),
           borderRadius: BorderRadius.circular(30.0),
         ),
+// -------------------------------------------------------------------------------------------------
+
         child: Stack(
           alignment: Alignment.topLeft,
           children: <Widget>[

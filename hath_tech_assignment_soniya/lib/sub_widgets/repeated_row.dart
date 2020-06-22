@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:heth_tech_assignment_soniya/constants/ui_constants.dart';
+import 'package:provider/provider.dart';
+import 'package:heth_tech_assignment_soniya/services/provider_service.dart';
 
 class RepeatedRow extends StatelessWidget {
-  //todo: Create contructore here
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,17 +16,14 @@ class RepeatedRow extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        Column(
-          children: <Widget>[
-            Text('Metal'),
-            Text('MTL'),
-          ],
+        // -------------------------------------------------------------------------------------------------
+
+        Text(
+          Provider.of<ProviderData>(context).featuredCurrency,
         ),
-        Column(
-          children: <Widget>[
-            Text('dollars'),
-            Text('dollars'),
-          ],
+        Text(
+          Provider.of<ProviderData>(context).featuredCurrencyAmount,
+          style: kMoneyStyle,
         ),
       ],
     );

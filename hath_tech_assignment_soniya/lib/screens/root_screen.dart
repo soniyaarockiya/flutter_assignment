@@ -19,8 +19,9 @@ class RootScreen extends StatefulWidget {
 class _RootScreenState extends State<RootScreen> {
   //bottom nav icon index
   int _selectedIndex = 0;
+  final FireBaseService _fireBaseService = new BaseClass();
 
-  //different bottom nav screens
+  //different bottom nav screen widgets
   final List<Widget> _children = [
     HomeScreen(),
     PaymentsScreen(),
@@ -28,11 +29,10 @@ class _RootScreenState extends State<RootScreen> {
     DiscoverScreen()
   ];
 
-  final FireBaseService _fireBaseService = new BaseClass();
-
   @override
   void initState() {
     super.initState();
+    // get user details from firebase -- cash balance and crypto balance
     getBalDetails();
   }
 
@@ -65,6 +65,8 @@ class _RootScreenState extends State<RootScreen> {
           'Metal',
           style: kTitleTextStyle,
         ),
+        // -------------------------------------------------------------------------------------------------
+
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.fromLTRB(0.0, 18.0, 18.0, 0.0),
@@ -79,6 +81,8 @@ class _RootScreenState extends State<RootScreen> {
           )
         ],
       ),
+      // -------------------------------------------------------------------------------------------------
+
       body: IndexedStack(
         children: _children,
         index: _selectedIndex,

@@ -1,18 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:heth_tech_assignment_soniya/data/payment_history.dart';
-// import 'package:heth_tech_assignment_soniya/data/payment_history.dart';
 
+// to provide abstraction
 abstract class FireBaseService {
   Future<String> getCashBalance() {}
   Future<String> getCryptoBalance() {}
   Future<List<PaymentHistory>> getPaymentHistory() {}
   Future<PaymentHistory> getPendingPayment() {}
-
+  // Later............
   // Future<void> updateCashBalance() {}
   // Future<void> updateCryptoBalance() {}
   // Future<void> updatePaymentHistory() {}
 }
 
+// this implements the methods of FireBaseService class to provide abstraction
 class BaseClass implements FireBaseService {
   final Firestore _firestore = Firestore.instance;
 
@@ -32,6 +33,7 @@ class BaseClass implements FireBaseService {
       print(e);
     }
   }
+  // -------------------------------------------------------------------------------------------------
 
   Future<String> getCryptoBalance() async {
     String result;
@@ -49,6 +51,7 @@ class BaseClass implements FireBaseService {
       print(e);
     }
   }
+  // -------------------------------------------------------------------------------------------------
 
   Future<List<PaymentHistory>> getPaymentHistory() async {
     try {
@@ -70,6 +73,7 @@ class BaseClass implements FireBaseService {
       print(e);
     }
   }
+  // -------------------------------------------------------------------------------------------------
 
   Future<PaymentHistory> getPendingPayment() async {
     PaymentHistory paymentHistory = new PaymentHistory();

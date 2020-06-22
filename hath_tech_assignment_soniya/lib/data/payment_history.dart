@@ -1,3 +1,5 @@
+//POJO for payment history list view
+
 class PaymentHistory {
   String name;
   String type;
