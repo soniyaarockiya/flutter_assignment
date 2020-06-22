@@ -55,23 +55,29 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
                   imageUrl: Provider.of<ProviderData>(context).infoCardImageUrl,
                 ),
               ),
-              SizedBox(
-                height: 20.0,
-                width: 150.0,
-                child: Divider(
-                  color: Colors.teal.shade100,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: kSizedBox,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Featured',
+                  textAlign: TextAlign.center,
+                  style: kDividerTextStyle,
                 ),
               ),
-              Text(
-                'Featured',
-                textAlign: TextAlign.center,
-              ),
               RepeatedRow(),
-              SizedBox(
-                height: 20.0,
-                width: 150.0,
-                child: Divider(
-                  color: Colors.teal.shade100,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: kSizedBox,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Portfolio',
+                  textAlign: TextAlign.center,
+                  style: kDividerTextStyle,
                 ),
               ),
               RepeatedRow(),

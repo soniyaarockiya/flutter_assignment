@@ -70,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       balance:
                           '${Provider.of<ProviderData>(context).cashBalance}',
                       text: 'Cash',
+
                       imageUrl:
                           Provider.of<ProviderData>(context).infoCardImageUrl2,
 
@@ -87,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: RoundedButton(
                       title: 'Request',
-                      color: Colors.grey,
+                      color: Colors.blueGrey,
                       onPressed: () {
                         // write code to request money
                       },

@@ -6,6 +6,7 @@ abstract class FireBaseService {
   Future<String> getCashBalance() {}
   Future<String> getCryptoBalance() {}
   Future<List<PaymentHistory>> getPaymentHistory() {}
+  Future<PaymentHistory> getPendingPayment() {}
 
   // Future<void> updateCashBalance() {}
   // Future<void> updateCryptoBalance() {}
@@ -58,11 +59,32 @@ class BaseClass implements FireBaseService {
           PaymentHistory paymentHistory = new PaymentHistory(
               name: element.data['name'].toString(),
               type: element.data['type'].toString(),
-              amount: element.data['amount'].toString());
+              amount: element.data['amount'].toString(),
+              comment: element.data['comment'].toString());
+
           paymentHistoryList.add(paymentHistory);
         });
       });
       return paymentHistoryList;
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<PaymentHistory> getPendingPayment() async {
+    PaymentHistory paymentHistory = new PaymentHistory();
+
+    try {
+      await _firestore
+          .collection('pendingPayment')
+          .document('CxuDTNO65mCwMA60fMdP')
+          .get()
+          .then((value) {
+        paymentHistory.name = value.data['name'].toString();
+        paymentHistory.amount = value.data['amount'].toString();
+        paymentHistory.comment = value.data['comment'].toString();
+      });
+      return paymentHistory;
     } catch (e) {
       print(e);
     }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:heth_tech_assignment_soniya/constants/ui_constants.dart';
 import 'package:heth_tech_assignment_soniya/data/payment_history.dart';
 import 'package:heth_tech_assignment_soniya/sub_widgets/list_view_component.dart';
 import 'package:heth_tech_assignment_soniya/services/firebase_service.dart';
@@ -13,6 +14,7 @@ class PaymentsScreen extends StatefulWidget {
 class _PaymentsScreenState extends State<PaymentsScreen> {
   List<PaymentHistory> paymentHistoryList = [];
   List<PaymentHistory> paymentHistoryList2 = [];
+  PaymentHistory _pendingPayment = new PaymentHistory();
 
   FireBaseService _fireBaseService = new BaseClass();
   TextEditingController _editingController = TextEditingController();
@@ -28,10 +30,12 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
 
   void getPHistory() async {
     dynamic paymentHistory = await _fireBaseService.getPaymentHistory();
+    dynamic pendingPayment = await _fireBaseService.getPendingPayment();
 
     setState(() {
       paymentHistoryList.addAll(paymentHistory);
       paymentHistoryList2.addAll(paymentHistoryList);
+      _pendingPayment = pendingPayment;
     });
   }
 
@@ -60,11 +64,27 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Visibility(
-              child: Text('Some text to show to pay amount'),
+          Visibility(
               visible: _visibility,
+              child: Text(
+                'Pending Payment',
+                style: kDividerTextStyle,
+              )),
+          Visibility(
+            visible: _visibility,
+            child: ListComponent(
+              paymentHistory: _pendingPayment,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: kSizedBox,
+          ),
+          Visibility(
+            visible: _visibility,
+            child: Text(
+              'Payment History',
+              style: kDividerTextStyle,
             ),
           ),
           Expanded(
@@ -94,7 +114,9 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
 
       List<PaymentHistory> dummyListData = [];
       dummySearchList.forEach((item) {
-        if (item.name.contains(query) || item.amount.contains(query)) {
+        if (item.name.contains(query) ||
+            item.amount.contains(query) ||
+            item.comment.contains(query)) {
           dummyListData.add(item);
         }
       });

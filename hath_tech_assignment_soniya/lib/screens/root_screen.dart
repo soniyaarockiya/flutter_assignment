@@ -116,7 +116,7 @@ class _RootScreenState extends State<RootScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.grey,
+        selectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );

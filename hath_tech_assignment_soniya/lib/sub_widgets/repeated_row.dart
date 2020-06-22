@@ -7,7 +7,13 @@ class RepeatedRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        CircleAvatar(),
+        CircleAvatar(
+          backgroundColor: Colors.black,
+          child: Icon(
+            Icons.attach_money,
+            color: Colors.white,
+          ),
+        ),
         Column(
           children: <Widget>[
             Text('Metal'),
