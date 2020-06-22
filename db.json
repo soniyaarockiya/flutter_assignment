@@ -2,10 +2,10 @@
   "featured": [
     {
       "id": 1,
-      "currency": "Bitcoin"
+      "currency": "Bitcoin",
+      "amount" : "20"
     },
-    
-  ],
+    ],
   "comments": [
     {
       "id": 1,
