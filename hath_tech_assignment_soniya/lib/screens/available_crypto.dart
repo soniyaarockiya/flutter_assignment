@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:heth_tech_assignment_soniya/constants/ui_constants.dart';
 import 'package:heth_tech_assignment_soniya/sub_widgets/info_cards.dart';
 import 'package:heth_tech_assignment_soniya/sub_widgets/repeated_row.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,7 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
         ),
       ),
       body: Container(
-        color: Colors.blue,
+        // color: Colors.blue,
         child: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Column(
@@ -39,7 +40,7 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
                   IconButton(
                       icon: Icon(
                         Icons.search,
-                        color: Colors.red,
+                        color: kIconColor,
                       ),
                       onPressed: null),
                 ],
@@ -51,7 +52,7 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
                       '${Provider.of<ProviderData>(context).cryptoBalance}',
                   text: 'Crypto',
                   color: Colors.black,
-                  imageUrl: 'https://wallpapercave.com/wp/wp2337006.jpg',
+                  imageUrl: Provider.of<ProviderData>(context).infoCardImageUrl,
                 ),
               ),
               SizedBox(

@@ -9,6 +9,10 @@ class ProviderData extends ChangeNotifier {
   String myBitcoin = "0";
   String imageUrl =
       "https://images.pexels.com/photos/4099305/pexels-photo-4099305.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  String infoCardImageUrl2 =
+      'https://img.etimg.com/thumb/msid-75913693,width-300,imgsize-981580,resizemode-4/thinkstockphotos-876844728.jpg';
+  String infoCardImageUrl =
+      'https://c4.wallpaperflare.com/wallpaper/403/467/730/technology-bitcoin-coin-money-wallpaper-preview.jpg';
 
   void changeUserName(newName) {
     this.userName = newName;

@@ -44,6 +44,7 @@ class _RootScreenState extends State<RootScreen> {
     Provider.of<ProviderData>(context, listen: false).changeCrypto(result2);
 
     Provider.of<ProviderData>(context, listen: false).totalBal(result, result2);
+    await _fireBaseService.getPaymentHistory();
   }
 
   @override
@@ -53,30 +54,27 @@ class _RootScreenState extends State<RootScreen> {
         elevation: 0.0,
         centerTitle: true,
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.fromLTRB(18.0, 18.0, 0.0, 0.0),
           child: CircleAvatar(
             backgroundImage:
                 NetworkImage(Provider.of<ProviderData>(context).imageUrl),
-            backgroundColor: Colors.amber,
+            backgroundColor: Colors.black,
           ),
         ),
         title: Text(
           'Metal',
-          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          style: kTitleTextStyle,
         ),
         actions: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey[200],
-              child: IconButton(
-                icon: Icon(
-                  Icons.card_giftcard,
-                  color: kIconColor,
-                ),
-                onPressed: null,
-                alignment: Alignment.center,
+            padding: const EdgeInsets.fromLTRB(0.0, 18.0, 18.0, 0.0),
+            child: IconButton(
+              icon: Icon(
+                Icons.card_giftcard,
+                color: kIconColor,
               ),
+              onPressed: null,
+              alignment: Alignment.center,
             ),
           )
         ],
@@ -86,6 +84,7 @@ class _RootScreenState extends State<RootScreen> {
         index: _selectedIndex,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
@@ -117,7 +116,7 @@ class _RootScreenState extends State<RootScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
     );

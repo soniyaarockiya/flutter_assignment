@@ -24,7 +24,7 @@ class InfoCards extends StatelessWidget {
           alignment: Alignment.topLeft,
           children: <Widget>[
             Image.network(imageUrl,
-                fit: BoxFit.fill,
+                fit: BoxFit.fitHeight,
                 color: Color.fromRGBO(255, 255, 255, 0.3),
                 colorBlendMode: BlendMode.modulate),
             Padding(
