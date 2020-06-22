@@ -1,9 +1,20 @@
 {
-    "featured": [
-        {
-            "id": 1,
-            "currencyName": "Bitcoin",
-            "amount": "150"
-        }
-    ]
+  "featured": [
+    {
+      "id": 1,
+      "currency": "Bitcoin"
+    },
+    
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }
