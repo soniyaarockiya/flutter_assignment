@@ -10,19 +10,18 @@ class RepeatedRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         CircleAvatar(
+          backgroundImage:
+              NetworkImage(Provider.of<ProviderData>(context).imageUrl),
           backgroundColor: Colors.black,
-          child: Icon(
-            Icons.attach_money,
-            color: Colors.white,
-          ),
         ),
         // -------------------------------------------------------------------------------------------------
 
         Text(
           Provider.of<ProviderData>(context).featuredCurrency,
+          // style: kListViewTitleText,
         ),
         Text(
-          Provider.of<ProviderData>(context).featuredCurrencyAmount,
+          '\$ ${Provider.of<ProviderData>(context).featuredCurrencyAmount}',
           style: kMoneyStyle,
         ),
       ],

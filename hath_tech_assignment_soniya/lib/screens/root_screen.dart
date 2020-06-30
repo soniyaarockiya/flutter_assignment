@@ -61,27 +61,30 @@ class _RootScreenState extends State<RootScreen> {
                   NetworkImage(Provider.of<ProviderData>(context).imageUrl),
               backgroundColor: Colors.black,
             ),
-            Row(
-              children: <Widget>[
-                ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (Rect bounds) {
-                    return linearGradient;
-                  },
-                  child: Icon(
-                    Icons.equalizer,
-                    size: 40.0,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: <Widget>[
+                  ShaderMask(
+                    blendMode: BlendMode.srcIn,
+                    shaderCallback: (Rect bounds) {
+                      return linearGradient;
+                    },
+                    child: Icon(
+                      Icons.equalizer,
+                      size: 40.0,
+                    ),
                   ),
-                ),
-                Text(
-                  'Metal',
-                  style: kTitleTextStyle.copyWith(
-                      foreground: Paint()..shader = linearGradient),
-                ),
-              ],
+                  Text(
+                    'Metal',
+                    style: kTitleTextStyle.copyWith(
+                        foreground: Paint()..shader = linearGradient),
+                  ),
+                ],
+              ),
             ),
             CircleAvatar(
-              backgroundColor: Colors.white30,
+              backgroundColor: Colors.grey[200],
               child: IconButton(
                 icon: Icon(
                   Icons.card_giftcard,

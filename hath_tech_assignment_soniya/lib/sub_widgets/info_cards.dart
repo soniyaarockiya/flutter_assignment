@@ -15,7 +15,7 @@ class InfoCards extends StatelessWidget {
       onTap: onTap,
       child: Card(
         shadowColor: Colors.grey,
-        semanticContainer: true,
+        // semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         elevation: 4.0,
         color: color,
@@ -36,7 +36,7 @@ class InfoCards extends StatelessWidget {
             padding: const EdgeInsets.all(32.0),
             child: Text(
               '$text : \$$balance',
-              style: kTextStyle,
+              style: kInfoCardTextStyle,
             ),
           ),
         ),

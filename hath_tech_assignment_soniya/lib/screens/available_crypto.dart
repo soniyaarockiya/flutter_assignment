@@ -43,26 +43,27 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Stack(
-                alignment: Alignment.bottomRight,
-                children: <Widget>[
-                  TextField(
-                    textAlign: TextAlign.center,
-                    decoration: InputDecoration(
-                      hintText: 'Coin Name Or Symbol',
-                    ),
-                  ),
-                  IconButton(
-                      icon: Icon(
-                        Icons.search,
-                        color: kIconColor,
-                      ),
-                      onPressed: null),
-                ],
-              ),
+              // Stack(
+              //   alignment: Alignment.bottomRight,
+              //   children: <Widget>[
+              //     TextField(
+              //       textAlign: TextAlign.center,
+              //       decoration: InputDecoration(
+              //         hintText: 'Coin Name Or Symbol',
+              //       ),
+              //     ),
+              //     IconButton(
+              //         icon: Icon(
+              //           Icons.search,
+              //           color: kIconColor,
+              //         ),
+              //         onPressed: null),
+              //   ],
+              // ),
               // -------------------------------------------------------------------------------------------------
 
               Expanded(
+                flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: InfoCards(
@@ -71,7 +72,7 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
                     text: 'Crypto',
                     color: Colors.black,
                     imageUrl:
-                        Provider.of<ProviderData>(context).infoCardImageUrl,
+                        Provider.of<ProviderData>(context).infoCardImageUrl2,
                   ),
                 ),
               ),

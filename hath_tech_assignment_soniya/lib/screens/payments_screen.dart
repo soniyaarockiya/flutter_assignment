@@ -54,7 +54,8 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
               },
               controller: _editingController,
               decoration: InputDecoration(
-                labelText: "Search",
+                filled: true,
+                fillColor: Colors.grey[200],
                 hintText: "Search",
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(
@@ -67,41 +68,60 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
           ),
           // -------------------------------------------------------------------------------------------------
 
+          Expanded(child: Visibility(visible: _visibility, child: kSizedBox)),
           Visibility(
-              visible: _visibility,
+            visible: _visibility,
+            child: Expanded(
+              flex: 1,
               child: Text(
                 'Pending Payment',
                 style: kDividerTextStyle,
-              )),
+              ),
+            ),
+          ),
           // -------------------------------------------------------------------------------------------------
 
           Visibility(
             visible: _visibility,
             child: ListComponent(
               paymentHistory: _pendingPayment,
+              icon: Icons.remove_circle_outline,
+              toPayIconColor: Colors.red[300],
+              minusPlus: '-',
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: kSizedBox,
-          ),
+
           // -------------------------------------------------------------------------------------------------
+          Expanded(child: Visibility(visible: _visibility, child: kSizedBox)),
 
           Visibility(
             visible: _visibility,
-            child: Text(
-              'Payment History',
-              style: kDividerTextStyle,
+            child: Expanded(
+              flex: 1,
+              child: Text(
+                'Payment History',
+                style: kDividerTextStyle,
+              ),
             ),
           ),
+
           // -------------------------------------------------------------------------------------------------
 
           Expanded(
+            flex: 7,
             child: ListView.builder(
               itemCount: paymentHistoryList.length,
               itemBuilder: (context, int index) {
                 return ListComponent(
                   paymentHistory: paymentHistoryList[index],
+                  icon: paymentHistoryList[index].type == 'borrowed'
+                      ? Icons.keyboard_arrow_left
+                      : Icons.keyboard_arrow_right,
+                  toPayIconColor: paymentHistoryList[index].type == 'borrowed'
+                      ? Colors.blue[300]
+                      : Colors.green[300],
+                  minusPlus:
+                      paymentHistoryList[index].type == 'borrowed' ? '+' : '-',
                 );
               },
             ),

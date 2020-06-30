@@ -12,13 +12,24 @@ const kTextStyle =
 const kMoneyStyle = TextStyle(
     fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.deepPurple);
 
-const kSizedBox = SizedBox(height: 10.0, child: Divider(color: Colors.grey));
+const kListViewTitleText = TextStyle(
+    color: Colors.black,
+    fontSize: 16.0,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 1.6);
+
+const kListViewDescText =
+    TextStyle(color: Colors.black, fontSize: 14.0, letterSpacing: 1.6);
+
+const kSizedBox = SizedBox(height: 10.0, child: Divider(color: Colors.white));
 
 const kDividerTextStyle = TextStyle(
-    fontSize: 23.0,
+    fontSize: 16.0,
     color: Colors.grey,
     fontWeight: FontWeight.bold,
-    fontStyle: FontStyle.italic);
+    letterSpacing: 1.6);
+const kInfoCardTextStyle =
+    TextStyle(fontSize: 25.0, color: Colors.white, fontWeight: FontWeight.bold);
 
 final Shader linearGradient = LinearGradient(
   colors: <Color>[Colors.purple, Colors.pink, Colors.red, Colors.blue],
