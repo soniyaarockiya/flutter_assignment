@@ -8,9 +8,9 @@ class ListComponent extends StatelessWidget {
   ListComponent(
       {this.paymentHistory, this.icon, this.toPayIconColor, this.minusPlus});
   final PaymentHistory paymentHistory;
-  IconData icon;
-  Color toPayIconColor;
-  String minusPlus;
+  final IconData icon;
+  final Color toPayIconColor;
+  final String minusPlus;
   @override
   Widget build(BuildContext context) {
     return Card(
