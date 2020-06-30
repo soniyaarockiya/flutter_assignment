@@ -53,34 +53,48 @@ class _RootScreenState extends State<RootScreen> {
       appBar: AppBar(
         elevation: 0.0,
         centerTitle: true,
-        leading: Padding(
-          padding: const EdgeInsets.fromLTRB(18.0, 18.0, 0.0, 0.0),
-          child: CircleAvatar(
-            backgroundImage:
-                NetworkImage(Provider.of<ProviderData>(context).imageUrl),
-            backgroundColor: Colors.black,
-          ),
-        ),
-        title: Text(
-          'Metal',
-          style: kTitleTextStyle,
-        ),
-        // -------------------------------------------------------------------------------------------------
-
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 18.0, 18.0, 0.0),
-            child: IconButton(
-              icon: Icon(
-                Icons.card_giftcard,
-                color: kIconColor,
-              ),
-              onPressed: null,
-              alignment: Alignment.center,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            CircleAvatar(
+              backgroundImage:
+                  NetworkImage(Provider.of<ProviderData>(context).imageUrl),
+              backgroundColor: Colors.black,
             ),
-          )
-        ],
+            Row(
+              children: <Widget>[
+                ShaderMask(
+                  blendMode: BlendMode.srcIn,
+                  shaderCallback: (Rect bounds) {
+                    return linearGradient;
+                  },
+                  child: Icon(
+                    Icons.equalizer,
+                    size: 40.0,
+                  ),
+                ),
+                Text(
+                  'Metal',
+                  style: kTitleTextStyle.copyWith(
+                      foreground: Paint()..shader = linearGradient),
+                ),
+              ],
+            ),
+            CircleAvatar(
+              backgroundColor: Colors.white30,
+              child: IconButton(
+                icon: Icon(
+                  Icons.card_giftcard,
+                  color: kIconColor,
+                ),
+                onPressed: null,
+                alignment: Alignment.center,
+              ),
+            ),
+          ],
+        ),
       ),
+
       // -------------------------------------------------------------------------------------------------
 
       body: IndexedStack(
@@ -93,35 +107,34 @@ class _RootScreenState extends State<RootScreen> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: kIconColor,
             ),
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.payment,
-              color: kIconColor,
             ),
             title: Text('Payment'),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.scanner,
-              color: kIconColor,
             ),
             title: Text('Scan'),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
-              color: kIconColor,
             ),
             title: Text('Discover'),
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.deepPurple,
+        unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
+        showUnselectedLabels: true,
+        unselectedIconTheme: IconThemeData(color: Colors.grey),
       ),
     );
   }

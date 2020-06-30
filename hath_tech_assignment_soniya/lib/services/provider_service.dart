@@ -9,10 +9,11 @@ class ProviderData extends ChangeNotifier {
   String featuredCurrencyAmount = "0";
   String imageUrl =
       "https://images.pexels.com/photos/4099305/pexels-photo-4099305.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+
   String infoCardImageUrl2 =
-      'https://img.etimg.com/thumb/msid-75913693,width-300,imgsize-981580,resizemode-4/thinkstockphotos-876844728.jpg';
+      'https://cdn.pixabay.com/photo/2015/01/22/23/59/purple-608575_1280.jpg';
   String infoCardImageUrl =
-      'https://c4.wallpaperflare.com/wallpaper/403/467/730/technology-bitcoin-coin-money-wallpaper-preview.jpg';
+      'https://previews.123rf.com/images/torsakarin/torsakarin1308/torsakarin130800185/21431997-gray-canvas-texture-background.jpg';
 
   void changeUserName(newName) {
     this.userName = newName;

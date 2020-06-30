@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.only(right: 60.0),
               child: Text(
                 'Hey ${Provider.of<ProviderData>(context).userName}, your total balance is ',
-                style: kTitleTextStyle,
+                style: kHeaderTextStyle,
               ),
             ),
             // -------------------------------------------------------------------------------------------------
@@ -53,9 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       balance:
                           '${Provider.of<ProviderData>(context).cryptoBalance}',
                       text: 'Crypto',
-                      color: Colors.black,
+                      color: Colors.white,
                       imageUrl:
-                          Provider.of<ProviderData>(context).infoCardImageUrl,
+                          Provider.of<ProviderData>(context).infoCardImageUrl2,
                       onTap: () {
                         Navigator.pushNamed(context, AvailableCryptoScreen.id);
                       },
@@ -70,12 +70,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     right: 0.0,
                     // see sub_widget folder for this widget
                     child: InfoCards(
-                      color: Colors.black,
+                      color: Colors.white,
                       balance:
                           '${Provider.of<ProviderData>(context).cashBalance}',
                       text: 'Cash',
                       imageUrl:
-                          Provider.of<ProviderData>(context).infoCardImageUrl2,
+                          Provider.of<ProviderData>(context).infoCardImageUrl,
                     ),
                   )
                 ],
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: RoundedButton(
                       title: 'Request',
-                      color: Colors.blueGrey,
+                      color: Colors.deepPurple,
                       onPressed: () {
                         // write code to request money
                       },

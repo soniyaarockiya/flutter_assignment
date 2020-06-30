@@ -62,14 +62,17 @@ class _AvailableCryptoScreenState extends State<AvailableCryptoScreen> {
               ),
               // -------------------------------------------------------------------------------------------------
 
-              Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: InfoCards(
-                  balance:
-                      '${Provider.of<ProviderData>(context).cryptoBalance}',
-                  text: 'Crypto',
-                  color: Colors.black,
-                  imageUrl: Provider.of<ProviderData>(context).infoCardImageUrl,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: InfoCards(
+                    balance:
+                        '${Provider.of<ProviderData>(context).cryptoBalance}',
+                    text: 'Crypto',
+                    color: Colors.black,
+                    imageUrl:
+                        Provider.of<ProviderData>(context).infoCardImageUrl,
+                  ),
                 ),
               ),
 

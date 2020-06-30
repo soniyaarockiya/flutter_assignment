@@ -8,37 +8,37 @@ class InfoCards extends StatelessWidget {
   final Function onTap;
   final String text;
   final String balance;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        shadowColor: Colors.blueGrey,
+        shadowColor: Colors.grey,
         semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
-        elevation: 10.0,
+        elevation: 4.0,
         color: color,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 3.5, color: Colors.blueGrey),
+          side: BorderSide(width: 1.5),
           borderRadius: BorderRadius.circular(30.0),
         ),
 // -------------------------------------------------------------------------------------------------
 
-        child: Stack(
-          alignment: Alignment.topLeft,
-          children: <Widget>[
-            Image.network(imageUrl,
-                fit: BoxFit.fill,
-                color: Color.fromRGBO(255, 255, 255, 0.3),
-                colorBlendMode: BlendMode.modulate),
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Text(
-                '$text : \$$balance',
-                style: kTextStyle,
-              ),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(imageUrl),
+              fit: BoxFit.cover,
             ),
-          ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: Text(
+              '$text : \$$balance',
+              style: kTextStyle,
+            ),
+          ),
         ),
       ),
     );
